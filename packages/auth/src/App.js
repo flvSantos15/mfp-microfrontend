@@ -1,33 +1,32 @@
-import React from "react";
-import {
-  StylesProvider,
-  createGenerateClassName,
-} from "@material-ui/core/styles";
-import { Router, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Router, Route, Routes } from "react-router-dom";
+import { StyledEngineProvider } from "@mui/material/styles";
 
 import Signin from './components/Signin'
 import Signup from './components/Signup'
 
-const generateClassName = createGenerateClassName({
-  productionPrefix: "au",
-});
-
 export default ({ history, onSignIn }) => {
+  const [location, setLocation] = useState(history.location)
+  
+  useEffect(() => {
+    const unlisten = history.listen((location) => {
+      setLocation(location)
+    })
+
+    return unlisten
+  }, [history])
+  
   return (
     <div>
-      <StylesProvider generateClassName={generateClassName}>
-        <Router history={history}>
-          <Switch>
-            <Route path="auth/signin">
-              <Signin onSignIn={onSignIn} />
-            </Route>
-
-            <Route path="auth/signup">
-              <Signup onSignIn={onSignIn} />
-            </Route>
-          </Switch>
+      <StyledEngineProvider>
+        <Router location={location} navigator={history}>
+          <Routes>
+            <Route path="auth/signin" element={<Signin onSignIn={onSignIn} />} />
+            
+            <Route path="auth/signup" element={<Signup onSignIn={onSignIn} />} />
+          </Routes>
         </Router>
-      </StylesProvider>
+      </StyledEngineProvider>
     </div>
   );
 };
