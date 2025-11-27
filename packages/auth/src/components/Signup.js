@@ -56,9 +56,11 @@ export default function SignUp({ onSignIn }) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
+        
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
+        
         <form
           onSubmit={(e) => e.preventDefault()}
           className={classes.form}
@@ -77,6 +79,7 @@ export default function SignUp({ onSignIn }) {
                 autoFocus
               />
             </Grid>
+            
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
@@ -88,6 +91,7 @@ export default function SignUp({ onSignIn }) {
                 autoComplete="lname"
               />
             </Grid>
+            
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -99,6 +103,7 @@ export default function SignUp({ onSignIn }) {
                 autoComplete="email"
               />
             </Grid>
+            
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -111,6 +116,7 @@ export default function SignUp({ onSignIn }) {
                 autoComplete="current-password"
               />
             </Grid>
+            
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
@@ -118,6 +124,7 @@ export default function SignUp({ onSignIn }) {
               />
             </Grid>
           </Grid>
+          
           <Button
             type="submit"
             fullWidth
@@ -128,6 +135,7 @@ export default function SignUp({ onSignIn }) {
           >
             Sign Up
           </Button>
+          
           <Grid container justifyContent="flex-end">
             <Grid item>
               <Link to="/auth/signin">Already have an account? Sign in</Link>
@@ -135,6 +143,7 @@ export default function SignUp({ onSignIn }) {
           </Grid>
         </form>
       </div>
+      
       <Box mt={5}>
         <Copyright />
       </Box>

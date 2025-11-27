@@ -59,9 +59,11 @@ export default function SignIn({ onSignIn }) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
+        
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
+        
         <form
           onSubmit={(e) => e.preventDefault()}
           className={classes.form}
@@ -78,6 +80,7 @@ export default function SignIn({ onSignIn }) {
             autoComplete="email"
             autoFocus
           />
+          
           <TextField
             variant="outlined"
             margin="normal"
@@ -89,10 +92,12 @@ export default function SignIn({ onSignIn }) {
             id="password"
             autoComplete="current-password"
           />
+          
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
+          
           <Button
             type="submit"
             fullWidth
@@ -103,6 +108,7 @@ export default function SignIn({ onSignIn }) {
           >
             Sign In
           </Button>
+          
           <Grid container>
             <Grid item>
               <Link to="/auth/signup">{"Don't have an account? Sign Up"}</Link>
@@ -110,6 +116,7 @@ export default function SignIn({ onSignIn }) {
           </Grid>
         </form>
       </div>
+      
       <Box mt={8}>
         <Copyright />
       </Box>
