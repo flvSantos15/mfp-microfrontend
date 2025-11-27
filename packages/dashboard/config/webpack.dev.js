@@ -14,6 +14,9 @@ const devConfig = {
     historyApiFallback: {
       index: "/index.html",
     },
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   },
   plugins: [
     new ModuleFederationPlugin({
